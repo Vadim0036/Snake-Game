@@ -1,5 +1,8 @@
 #include "Snake_Cell.cpp"
 
+#include <iostream>
+
+const int CELLS = 1024;
 
 class Snake
 {
@@ -12,7 +15,7 @@ private:
 
 public: 
 
-    Snake_Cell *snake_cells[1024];
+    Snake_Cell *snake_cells[CELLS];
 
     Snake()
     {
@@ -37,17 +40,23 @@ public:
 
         for(int cell_num = 0; cell_num < 1; ++cell_num)
         {
+            //printf("I am here\n");
             current_cell = snake_cells[cell_num];
             snake_dir = current_cell->get_dir();
             x_cord = current_cell->get_X();
             y_cord = current_cell->get_Y();
 
+            //std::cout << "Current X: " << x_cord;
+            //std::cout << "Current Y: " << y_cord;
+
+            //std::cout << '\n';
+
             if(snake_dir == 'l')
             {
-                x_cord++;
+                current_cell->decrement_Y();
             }
 
-            current_cell->update_cell(x_cord);
+            //current_cell->update_X(x_cord);
         }
     }
     

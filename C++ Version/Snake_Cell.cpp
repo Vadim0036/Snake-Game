@@ -29,6 +29,26 @@ public:
         // in what direction to incriment each snake cell
 
     }
+
+    void increment_X(void)
+    {
+        this->x_cordinate++;
+    }
+
+    void increment_Y(void)
+    {   
+        this->y_cordinate++;
+    }
+
+    void decrement_X(void)
+    {
+        this->x_cordinate--;
+    }
+
+    void decrement_Y(void)
+    {   
+        this->y_cordinate--;
+    }
     
 
     static void check_cordinate()

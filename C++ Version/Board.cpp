@@ -39,9 +39,7 @@ public:
                 }
             }
         }
-
         snake_obj = new Snake();
-
     }
 
     void display()
@@ -69,28 +67,56 @@ public:
         // to the board array
         // 
 
-        snake_obj->update_cells();
-
-        int cord_x;
-        int cord_y;
+        snake_obj->update_cells(); // updates snake cells in the array in object SNAKE
+        
+        redraw();
 
         Snake_Cell *current_cell;
 
-        for(int cell = 0; cell < 1024; cell++)
+        int x_cord;
+        int y_cord;
+        
+        // iterating throug snake cells array not board array
+        for(int i = 0; i < 1; ++i)
         {
-            current_cell = snake_obj->snake_cells[cell];
-            cord_x = current_cell->get_X();
-            cord_y = current_cell->get_Y();
+            current_cell = snake_obj->snake_cells[i];
+            x_cord = current_cell->get_X();
+            y_cord = current_cell->get_Y();
 
-            std::cout << "X: " << cord_x << '\n';
-            std::cout << "Y: " << cord_y << '\n';
-
-            board[cord_x][cord_y] = '*';
-
-            // need somehow remove previous snake cell
+            // we dont draw anything here, just update array 
+            board[x_cord][y_cord] = '*';
         }
 
         std::cout << "Updated!";
     }
+
+    // will redraw board to default before adding updated snake cells
+    void redraw()
+    {
+        for(int row = 0; row < ROWS; ++row)
+        {
+            for(int column = 0; column < COLUMNS; ++column)
+            {
+                if(row == 0 || row == (ROWS - 1))
+                {   
+                    board[row][column] = '-';
+                    //std::cout << std::setw(3) << '-';
+                }
+                else if(column == 0 || column == (COLUMNS - 1))
+                {
+                    board[row][column] = '|';
+                    //std::cout << std::setw(3) << '|';
+                }
+                else
+                {
+                    board[row][column] = ' ';
+                    //std::cout << std::setw(3) << ' ';
+                }
+            }
+        }
+    }
+
+
+    // create DESTRUCTOR 
 
 };
