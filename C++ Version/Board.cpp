@@ -4,9 +4,6 @@
 
 #include "Snake.cpp"
 
-const int ROWS = 18;
-const int COLUMNS = 12;
-
 class Board
 {
 private:
@@ -51,7 +48,7 @@ public:
         {
             for(int column = 0; column < COLUMNS; ++column)
             {
-               std::cout << std::setw(3) << board[row][column];
+               std::cout << std::setw(2) << board[row][column];
             }
             std::cout << "\n";
         }
@@ -63,21 +60,23 @@ public:
     {
         // board update
 
-        // it will take an array from the Snake object and copy all cells from there
-        // to the board array
-        // 
+        // update the snake's cells 
+        // reset the board to default  
+        // copy snake cells from snake array into board array 
 
-        snake_obj->update_cells(); // updates snake cells in the array in object SNAKE
+        snake_obj->update_cells();  // updates snake cells in the array in object SNAKE
         
-        redraw();
+        redraw();                   // reset the board to default 
 
         Snake_Cell *current_cell;
 
         int x_cord;
         int y_cord;
+
+        int number_cells = snake_obj->get_number_cells();
         
-        // iterating throug snake cells array not board array
-        for(int i = 0; i < 1; ++i)
+        // iterate throug snake cells array, not board array
+        for(int i = 0; i < number_cells; ++i)
         {
             current_cell = snake_obj->snake_cells[i];
             x_cord = current_cell->get_X();
@@ -116,7 +115,7 @@ public:
         }
     }
 
-
+    
     // create DESTRUCTOR  Later
 
 };

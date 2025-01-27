@@ -21,15 +21,6 @@ public:
 
     }
 
-    // this func should be in Snake 
-    void update_cell(char dir)
-    {
-
-        // direction will tell the function
-        // in what direction to incriment each snake cell
-
-    }
-
     void increment_X(void)
     {
         this->x_cordinate++;
@@ -48,14 +39,6 @@ public:
     void decrement_Y(void)
     {   
         this->y_cordinate--;
-    }
-    
-
-    static void check_cordinate()
-    {
-
-        // it will check if the snake goes out of the board dimensions 
-
     }
 
     int get_X()

@@ -7,7 +7,10 @@ int main(void)
 
     game.start_game();
 
-    //std::cout << "Hello World" << std::endl;
-
     return 0;
 }
+
+// next I should work on the user input
+// enabling direction change during the game 
+
+// add the objects to grow the snake

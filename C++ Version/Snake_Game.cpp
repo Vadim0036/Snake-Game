@@ -3,7 +3,7 @@
 
 #include "Board.cpp"
 
-const std::chrono::milliseconds UPDATE_TIME(1000);
+const std::chrono::milliseconds UPDATE_TIME(500);
 
 class SnakeGame
 {
@@ -38,5 +38,4 @@ public:
         }
     }
 
-    // functions
 };
