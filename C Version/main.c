@@ -1,4 +1,4 @@
-/* Test */
+/*  Test  */
 
 /* This Version of Snake Game has not been started */
 
