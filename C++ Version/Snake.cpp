@@ -96,8 +96,46 @@ public:
             cur_cell->update_X(1);
             return true;
         } 
-
+    
         return false;
+    }
+
+    void update_dir(char new_dir)
+    {
+        // it will update the direction of the snake 
+
+        // can posibly add another instance of the snake cell
+        // called prev direction 
+
+        // when head is updated the cell prevously from head receives previous direction of the head
+
+        Snake_Cell *current_cell;
+
+        for(int cell_num = 0; cell_num < num_cells; ++cell_num)
+        {
+            current_cell = snake_cells[cell_num];
+            
+            if(new_dir == 'a')
+            {
+                current_cell->update_dir('l');
+            }
+            else if(new_dir == 'd')
+            {
+                current_cell->update_dir('r');
+            }
+            else if(new_dir == 'w')
+            {
+                current_cell->update_dir('t');
+            }
+            else if(new_dir == 's')
+            {
+                current_cell->update_dir('d');
+            }
+            else
+            {
+                // no chages for direction
+            }
+        }
     }
 
     void add_cell()

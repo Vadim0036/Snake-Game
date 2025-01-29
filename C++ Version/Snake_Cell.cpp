@@ -66,5 +66,10 @@ public:
         y_cordinate = new_cord;
     }
 
+    void update_dir(char new_dir)
+    {
+        this->direction = new_dir;
+    }
+
     // necessary functions;
 };

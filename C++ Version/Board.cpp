@@ -56,13 +56,18 @@ public:
         std::cout << std::endl;
     }
 
-    void update()
+    void update(char input_dir)
     {
         // board update
 
         // update the snake's cells 
         // reset the board to default  
         // copy snake cells from snake array into board array 
+
+
+        // Update the direction of the snake 
+        snake_obj->update_dir(input_dir);
+
 
         snake_obj->update_cells();  // updates snake cells in the array in object SNAKE
         
