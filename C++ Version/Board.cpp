@@ -118,7 +118,11 @@ public:
         }
     }
 
-    
+    void generate_apple()
+    {
+
+    }
+
     // create DESTRUCTOR  Later
 
 };
