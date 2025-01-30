@@ -9,7 +9,6 @@ class Snake
 private:
 
     Snake_Cell *head;
-    Snake_Cell *tail;
 
     int num_cells = 0;
 
@@ -20,11 +19,12 @@ public:
     Snake()
     {
         head = new Snake_Cell(ROWS / 2, COLUMNS / 2, 'l');
-        tail = head;
-
         snake_cells[num_cells] = head;
 
-        num_cells = 1;
+        snake_cells[1] = new Snake_Cell(head->get_X(), head->get_Y() + 1, 'l');
+        snake_cells[2] = new Snake_Cell(head->get_X(), head->get_Y() + 2, 'l');
+
+        num_cells = 3;
     }
 
     void update_cells()
@@ -111,29 +111,41 @@ public:
 
         Snake_Cell *current_cell;
 
+        // direction of the head before adjustment
+
+        char prev_direction = head->get_dir();
+
         for(int cell_num = 0; cell_num < num_cells; ++cell_num)
         {
             current_cell = snake_cells[cell_num];
-            
-            if(new_dir == 'a')
+
+            if(current_cell == head)
             {
-                current_cell->update_dir('l');
-            }
-            else if(new_dir == 'd')
-            {
-                current_cell->update_dir('r');
-            }
-            else if(new_dir == 'w')
-            {
-                current_cell->update_dir('t');
-            }
-            else if(new_dir == 's')
-            {
-                current_cell->update_dir('d');
+                switch (new_dir)
+                {
+                case 'a': 
+                    current_cell->update_dir('l');
+                    break;
+                
+                case 'd':
+                    current_cell->update_dir('r');
+                    break;
+                case 'w':
+                    current_cell->update_dir('t');
+                    break;
+                case 's':
+                    current_cell->update_dir('d');
+                    break;
+                }   
+                
+                // !!!! Make sure the snake can't go to the opposite direction 
+
             }
             else
             {
-                // no chages for direction
+                char temp = current_cell->get_dir();
+                current_cell->update_dir(prev_direction);
+                prev_direction = temp;
             }
         }
     }
@@ -141,6 +153,11 @@ public:
     void add_cell()
     {
         //  this function will add new snake cell to the array of all cells
+
+        // this function should be called when the head is on the apple's cordiante  
+        // and thid function will add another cells to the tail
+
+
     }
 
     int get_number_cells()

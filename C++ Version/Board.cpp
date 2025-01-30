@@ -65,11 +65,11 @@ public:
         // copy snake cells from snake array into board array 
 
 
-        // Update the direction of the snake 
+        // Update the directions of the snake cells
         snake_obj->update_dir(input_dir);
 
-
-        snake_obj->update_cells();  // updates snake cells in the array in object SNAKE
+        // updates snake cells cordinates in the array in object SNAKE
+        snake_obj->update_cells();
         
         redraw();                   // reset the board to default 
 
@@ -90,8 +90,6 @@ public:
             // we dont draw anything here, just update array 
             board[x_cord][y_cord] = '*';
         }
-
-        std::cout << "Updated!";
     }
 
     // will redraw board to default before adding updated snake cells

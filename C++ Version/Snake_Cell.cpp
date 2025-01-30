@@ -11,9 +11,9 @@ public:
 
     Snake_Cell(int x, int y, char dir)
     {
-        x_cordinate  =  x;
-        y_cordinate  =  y;
-        direction    =  dir;
+        x_cordinate     = x;
+        y_cordinate     = y;
+        direction       = dir;
     }
 
     Snake_Cell()

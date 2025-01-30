@@ -7,7 +7,7 @@ int main(void)
     SnakeGame game;
 
     game.start_game();
-
+    
     return 0;
 }
 
