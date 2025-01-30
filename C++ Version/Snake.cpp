@@ -137,9 +137,9 @@ public:
                     current_cell->update_dir('d');
                     break;
                 }   
-                
-                // !!!! Make sure the snake can't go to the opposite direction 
 
+                // !!!! Make sure the snake can't go to the opposite direction 
+                    
             }
             else
             {
